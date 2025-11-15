@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Textura AI</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icons/favicon.svg">
+  <meta name="theme-color" content="#6C5CE7">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <span class="logo">✨</span>
+      <h1>Textura AI</h1>
+    </div>
+    <p class="tagline">Turn your imagination into stunning visuals.</p>
+  </header>
+
+  <main class="container">
+    <section class="left">
+      <label for="prompt" class="label">Enter Your Prompt</label>
+      <textarea id="prompt" class="prompt" rows="8" placeholder="e.g., A majestic lion in a snowy forest, cinematic lighting"></textarea>
+
+      <div class="actions">
+        <button id="generate" class="btn primary">Generate Image</button>
+        <button id="subscribe" class="btn outline">Subscribe</button>
+      </div>
+
+      <div class="meta">
+        <span class="trials">Trials Left: <strong id="trials-left">3</strong></span>
+        <a class="policy" href="privacy.html" target="_blank">Privacy Policy</a>
+      </div>
+    </section>
+
+    <section class="right">
+      <div id="preview" class="preview">
+        <div class="placeholder">
+          <img src="icons/image-placeholder.svg" alt="" />
+          <p>Your image will appear here</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="main.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./service-worker.js').catch(console.error);
+    }
+  </script>
+</body>
+</html>
